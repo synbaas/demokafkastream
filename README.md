@@ -1,5 +1,6 @@
 # Kafka Streaming 
 
+
 # Steps to setup Kafka 
   https://dzone.com/articles/running-apache-kafka-on-windows-os
 
@@ -9,10 +10,13 @@
   Download and extract ZooKeeper using 7-zip from http://zookeeper.apache.org/releases.html
   Download and extract Kafka using 7-zip from http://kafka.apache.org/downloads.html
   
- # Run Kafka server
+ # Start Kafka server
   kafka-server-start.bat C:\kafka_2.11-2.1.0\kafka_2.11-2.1.0\config\server.properties
  
- # Creating Topics
+ # Start ZooKeeper 
+ Run ZooKeeper by opening a new cmd and type zkserver.
+ 
+ # Command to create Topics
  
 kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic streams-plaintext-input
 
