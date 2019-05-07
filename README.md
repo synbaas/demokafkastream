@@ -1,6 +1,6 @@
 # Kafka Streaming 
 
-#Steps to setup Kafka 
+# Steps to setup Kafka 
   https://dzone.com/articles/running-apache-kafka-on-windows-os
 
   Downloading the Required Files ---
@@ -8,4 +8,21 @@
   Download and install 7-zip from http://www.7-zip.org/download.html
   Download and extract ZooKeeper using 7-zip from http://zookeeper.apache.org/releases.html
   Download and extract Kafka using 7-zip from http://kafka.apache.org/downloads.html
+  
+ # Run Kafka server
+  kafka-server-start.bat C:\kafka_2.11-2.1.0\kafka_2.11-2.1.0\config\server.properties
+ 
+ # Creating Topics
+ 
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic streams-plaintext-input
+
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic streams-wordcount-output
+
+# Run producer - Input topic
+kafka-console-producer --topic streams-plaintext-input --broker-list localhost:9092
+
+# Run consumer -Output Topic
+./bin/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic streams-wordcount-output --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+
+
 
