@@ -1,5 +1,11 @@
 # Kafka Streaming 
-
+Kafka Streams is a library for building streaming applications, specifically applications that transform input Kafka topics into output Kafka topics (or calls to external services, or updates to databases, or  other ). Kafka Streams addresses the  problems in stream processing such as;
+  Event-at-a-time processing (not microbatch) with millisecond latency
+  Stateful processing including distributed joins and aggregations
+  Windowing with out-of-order data using a DataFlow-like model
+  Distributed processing and fault-tolerance with fast failover
+  Reprocessing capabilities so you can recalculate output when your code changes
+  No-downtime rolling deployments
 
 # Steps to setup Kafka 
   https://dzone.com/articles/running-apache-kafka-on-windows-os
